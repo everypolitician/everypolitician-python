@@ -1,0 +1,9 @@
+/.tox
+/.cache
+/.__pycache__
+*~
+*.pyc
+/.coverage
+/htmlcov
+/everypolitician.egg-info
+/dist
