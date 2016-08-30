@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 import json
 from os.path import dirname, join
+import re
 from unittest import TestCase
 
 from mock import patch
@@ -67,6 +68,21 @@ class TestDataLoading(TestCase):
     def test_ep_repr_custom_url(self, patched_requests_get):
         ep = EveryPolitician(countries_json_url='foobar')
         assert repr(ep) == 'EveryPolitician(countries_json_url="foobar")'
+
+    def test_ep_from_local_file(self, patched_requests_get):
+        filename = join(
+            dirname(__file__), 'test-data', 'example-countries.json')
+        ep = EveryPolitician(countries_json_filename=filename)
+        assert re.search(
+            r'EveryPolitician\(countries_json_filename=".*example-countries.json"\)',
+            repr(ep))
+
+    def test_countries_from_local_file(self, patched_requests_get):
+        filename = join(
+            dirname(__file__), 'test-data', 'example-countries.json')
+        ep = EveryPolitician(countries_json_filename=filename)
+        countries = ep.countries()
+        assert len(countries) == 2
 
     def test_countries(self, patched_requests_get):
         ep = EveryPolitician()

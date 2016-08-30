@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 import csv
 from datetime import datetime
 import io
+import json
 
 import requests
 import six
@@ -20,18 +21,29 @@ class NotFound(Exception):
 @six.python_2_unicode_compatible
 class EveryPolitician(object):
 
-    def __init__(self, countries_json_url=None):
-        if countries_json_url is None:
-            countries_json_url = DEFAULT_COUNTRIES_JSON_URL
-        self.countries_json_url = countries_json_url
+    def __init__(self, countries_json_url=None, countries_json_filename=None):
+        self.countries_json_filename = None
+        self.countries_json_url = None
         self._countries_json_data = None
+        if countries_json_filename is None:
+            # Then get the data from a URL:
+            if countries_json_url is None:
+                countries_json_url = DEFAULT_COUNTRIES_JSON_URL
+            self.countries_json_url = countries_json_url
+        else:
+            # Otherwise, use the local file:
+            self.countries_json_filename = countries_json_filename
 
     def countries_json_data(self):
         if self._countries_json_data is not None:
             return self._countries_json_data
-        r = requests.get(self.countries_json_url)
-        r.raise_for_status()
-        self._countries_json_data = r.json()
+        if self.countries_json_filename is not None:
+            with open(self.countries_json_filename) as f:
+                self._countries_json_data = json.load(f)
+        else:
+            r = requests.get(self.countries_json_url)
+            r.raise_for_status()
+            self._countries_json_data = r.json()
         return self._countries_json_data
 
     def countries(self):
@@ -53,13 +65,18 @@ class EveryPolitician(object):
         return country, legislature
 
     def __repr__(self):
-        if self.countries_json_url == DEFAULT_COUNTRIES_JSON_URL:
-            return str('EveryPolitician()')
-        fmt = str('EveryPolitician(countries_json_url="{}")')
-        return fmt.format(self.countries_json_url)
+        if self.countries_json_filename is None:
+            if self.countries_json_url == DEFAULT_COUNTRIES_JSON_URL:
+                return str('EveryPolitician()')
+            fmt = str('EveryPolitician(countries_json_url="{}")')
+            return fmt.format(self.countries_json_url)
+        else:
+            fmt = str('EveryPolitician(countries_json_filename="{}")')
+            return fmt.format(self.countries_json_filename)
 
     def __str__(self):
-        return '<EveryPolitician: {0}>'.format(self.countries_json_url)
+        return '<EveryPolitician: {0}>'.format(
+            self.countries_json_url or self.countries_json_filename)
 
 
 @six.python_2_unicode_compatible
