@@ -169,6 +169,12 @@ class TestLegislativePeriod(TestCase):
             self.legislature = self.country.legislature('Diputados')
             self.period = self.legislature.legislative_periods()[0]
 
+    def test_start_date(self, patched_requests_get):
+        assert self.period.start_date == "2015"
+
+    def test_end_date(self, patched_requests_get):
+        assert self.period.end_date is None
+
     def test_csv(self, patched_requests_get):
         assert self.period.csv() == \
             [{u'area': u'BUENOS AIRES',
