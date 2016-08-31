@@ -20,8 +20,10 @@ class NotFound(Exception):
 
 @six.python_2_unicode_compatible
 class EveryPolitician(object):
+    """A class to load, parses and make accessible the EP countries.json file"""
 
     def __init__(self, countries_json_url=None, countries_json_filename=None):
+        """Initialize from either a remote or local countries.json file"""
         self.countries_json_filename = None
         self.countries_json_url = None
         self._countries_json_data = None
@@ -35,6 +37,7 @@ class EveryPolitician(object):
             self.countries_json_filename = countries_json_filename
 
     def countries_json_data(self):
+        """Return countries JSON data parsed into Python data structures"""
         if self._countries_json_data is not None:
             return self._countries_json_data
         if self.countries_json_filename is not None:
@@ -47,12 +50,14 @@ class EveryPolitician(object):
         return self._countries_json_data
 
     def countries(self):
+        """Return a list of all known countries"""
         return [
             Country(country_data) for country_data
             in self.countries_json_data()
         ]
 
     def country(self, country_slug):
+        """Return an Country object from a country slug"""
         for c in self.countries():
             if c.slug == country_slug:
                 return c
@@ -60,6 +65,7 @@ class EveryPolitician(object):
             country_slug))
 
     def country_legislature(self, country_slug, legislature_slug):
+        """Return a tuple of Country and Legislature objects from their slugs"""
         country = self.country(country_slug)
         legislature = country.legislature(legislature_slug)
         return country, legislature
@@ -81,6 +87,7 @@ class EveryPolitician(object):
 
 @six.python_2_unicode_compatible
 class Country(object):
+    """A class that represents a country from the countries.json file"""
 
     def __init__(self, country_data):
         for k in ('name', 'code', 'slug'):
@@ -88,12 +95,17 @@ class Country(object):
         self.country_data = country_data
 
     def legislatures(self):
+        """Return all the legislatures known for this country
+
+        A legislature is a chamber of a parliament, e.g. the House of
+        Commons in the UK."""
         return [
             Legislature(legislature_data, self) for legislature_data
             in self.country_data['legislatures']
         ]
 
     def legislature(self, legislature_slug):
+        """Return a legislature in this country from its slug"""
         for l in self.legislatures():
             if l.slug == legislature_slug:
                 return l
@@ -112,6 +124,7 @@ class Country(object):
 
 @six.python_2_unicode_compatible
 class Legislature(object):
+    """A class that represents a legislature of a country"""
 
     def __init__(self, legislature_data, country):
         for k in ('name', 'slug', 'person_count', 'sha', 'statement_count',
@@ -126,10 +139,12 @@ class Legislature(object):
     # method to return data parsed from self.popolo_url.
 
     def directory(self):
+        """Return the directory path in the everypolitician-data repository"""
         split_path = self.legislature_data['sources_directory'].split('/')
         return '/'.join(split_path[1:3])
 
     def legislative_periods(self):
+        """Return all the known legislative periods for this legislature"""
         return [
             LegislativePeriod(lp_data, self, self.country)
             for lp_data in self.legislature_data['legislative_periods']
@@ -148,6 +163,9 @@ class Legislature(object):
 
 
 def unicode_dict(d):
+    """Return a new dict where all the text has been decoded to unicode
+
+    This is only for Python 2."""
     return { k.decode('utf-8'): v.decode('utf-8') for k, v in d.items() }
 
 
@@ -162,14 +180,21 @@ class LegislativePeriod(object):
 
     @property
     def start_date(self):
+        """Return the start date of the legislative period
+
+        If this is unknown, it returns None."""
         return self.legislative_period_data.get('start_date')
 
     @property
     def end_date(self):
+        """Return the end date of the legislative period
+
+        If this is unknown, it returns None."""
         return self.legislative_period_data.get('end_date')
 
     @property
     def csv_url(self):
+        """Return the URL to CSV of members during this legislative period"""
         return 'https://raw.githubusercontent.com/everypolitician' \
             '/everypolitician-data/{0}/{1}'.format(
                 self.legislature.sha,
@@ -177,6 +202,10 @@ class LegislativePeriod(object):
             )
 
     def csv(self):
+        """Return parsed data from the CSV of members during the period
+
+        This returns a list of one dict per row of the CSV file, where
+        the keys are the column headers."""
         r = requests.get(self.csv_url)
         r.raise_for_status()
         if six.PY2:
