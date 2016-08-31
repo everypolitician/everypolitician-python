@@ -4,6 +4,8 @@ A Python library for easy access to EveryPolitician data. This
 is essentially a Python port of
 [everypolitican-ruby](https://github.com/everypolitician/everypolitician-ruby).
 
+This has been tested with Python 2.7 and Python 3.5.
+
 # Installation
 
 You can install this package from PyPi with:
