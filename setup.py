@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 setup(
     name = "everypolitician",
-    version = "0.0.2",
+    version = "0.0.3",
     packages = find_packages(),
     author = "Mark Longair",
     author_email = "mark@mysociety.org",
