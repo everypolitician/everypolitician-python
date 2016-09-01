@@ -10,6 +10,6 @@ setup(
     keywords = "politics data civic-tech",
     install_requires = [
         'requests',
-        'six',
+        'six >= 1.9.0',
     ]
 )
