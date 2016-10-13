@@ -13,6 +13,7 @@ import six
 from six import text_type
 
 from everypolitician import EveryPolitician, NotFound
+from popolo_data.importer import Popolo
 
 
 class FakeResponse(object):
@@ -173,6 +174,20 @@ class TestLeglislatureMethods(TestCase):
     def test_directory(self):
         l = self.legislatures[0]
         assert l.directory() == 'Argentina/Diputados'
+
+    @patch('everypolitician.lib.Popolo')
+    def test_popolo_call(self, mocked_popolo_class):
+        mocked_popolo_class.from_url.return_value = Popolo({
+            'persons': [
+                {'name': 'Joe Bloggs'}
+            ]
+        })
+        l = self.legislatures[0]
+        popolo = l.popolo()
+        mocked_popolo_class.from_url.assert_called_with(
+            u'https://cdn.rawgit.com/everypolitician/everypolitician-data/ba00071/data/Argentina/Diputados/ep-popolo-v1.0.json')
+        assert len(popolo.persons) == 1
+        assert popolo.persons.first.name == 'Joe Bloggs'
 
 
 @patch('everypolitician.lib.requests.get', side_effect=fake_requests_get)

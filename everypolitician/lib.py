@@ -8,6 +8,8 @@ import json
 import requests
 import six
 
+from popolo_data.importer import Popolo
+
 
 DEFAULT_COUNTRIES_JSON_URL = \
     'https://raw.githubusercontent.com/everypolitician/' \
@@ -135,8 +137,8 @@ class Legislature(object):
         self.legislature_data = legislature_data
         self.country = country
 
-    # TODO: when we've done everypolitician-popolo, add a 'popolo'
-    # method to return data parsed from self.popolo_url.
+    def popolo(self):
+        return Popolo.from_url(self.popolo_url)
 
     def directory(self):
         """Return the directory path in the everypolitician-data repository"""
