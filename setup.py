@@ -6,7 +6,7 @@ with open(join(dirname(__file__), 'README.rst')) as f:
 
 setup(
     name = "everypolitician",
-    version = "0.0.11",
+    version = "0.0.12",
     packages = find_packages(),
     author = "Mark Longair",
     author_email = "mark@mysociety.org",
