@@ -130,7 +130,7 @@ class Legislature(object):
 
     def __init__(self, legislature_data, country):
         for k in ('name', 'slug', 'person_count', 'sha', 'statement_count',
-                  'popolo_url'):
+                  'popolo_url', 'type'):
             setattr(self, k, legislature_data[k])
         self.lastmod = datetime.utcfromtimestamp(
             float(legislature_data['lastmod']))
