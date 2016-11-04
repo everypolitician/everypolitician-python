@@ -148,6 +148,40 @@ class TestCountryMethods(TestCase):
         assert len(ls) == 1
 
 
+class TestCountryHousesMethod(TestCase):
+
+    def test_finds_unicameral_legislature_for_lower_house(self):
+        with patch('everypolitician.lib.requests.get', side_effect=fake_requests_get):
+            ep = EveryPolitician()
+            country = ep.country('Albania')
+            houses = country.houses('lower house')
+            assert len(houses) == 1
+            assert houses[0].name == 'Kuvendi'
+
+    def test_finds_lower_house_if_present(self):
+        with patch('everypolitician.lib.requests.get', side_effect=fake_requests_get):
+            ep = EveryPolitician()
+            country = ep.country('Argentina')
+            houses = country.houses('lower house')
+            assert len(houses) == 1
+            assert houses[0].name == 'Cámara de Diputados'
+
+    def test_finds_upper_house_if_present(self):
+        with patch('everypolitician.lib.requests.get', side_effect=fake_requests_get):
+            ep = EveryPolitician()
+            country = ep.country('Argentina')
+            houses = country.houses('upper house')
+            assert len(houses) == 1
+            assert houses[0].name == 'Cámara de Senadores'
+
+    def test_no_matches_for_unknown_house_type(self):
+        with patch('everypolitician.lib.requests.get', side_effect=fake_requests_get):
+            ep = EveryPolitician()
+            country = ep.country('Argentina')
+            houses = country.houses('quiet area')
+            assert len(houses) == 0
+
+
 class TestLeglislatureMethods(TestCase):
 
     def setUp(self):

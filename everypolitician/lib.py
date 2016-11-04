@@ -114,6 +114,11 @@ class Country(object):
         raise NotFound("Couldn't find the legislature with slug '{0}'".format(
             legislature_slug))
 
+    def houses(self, type_of_house):
+        return [
+            l for l in self.legislatures()
+            if l.type in (type_of_house, 'unicameral legislature')]
+
     def __repr__(self):
         fmt = str('<Country: {}>')
         if six.PY2:
