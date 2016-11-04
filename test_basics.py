@@ -36,7 +36,7 @@ class FakeResponse(object):
 URL_DATA = {
     'https://raw.githubusercontent.com/everypolitician/everypolitician-data/master/countries.json':
     'example-countries.json',
-    'https://raw.githubusercontent.com/everypolitician/everypolitician-data/ba00071/data/Argentina/Diputados/term-133.csv':
+    'https://raw.githubusercontent.com/everypolitician/everypolitician-data/d3afadff7d5a08e1745b7e48782a869ec4979e78/data/Argentina/Diputados/term-133.csv':
     'example-period.csv'
 }
 
@@ -168,7 +168,7 @@ class TestLeglislatureMethods(TestCase):
     def test_legislature_popolo_url(self):
         l = self.legislatures[1]
         assert l.popolo_url == 'https://cdn.rawgit.com/everypolitician/' \
-            'everypolitician-data/25257c4/' \
+            'everypolitician-data/c323b935f2dce83fcdfcbb5c2f94614a25207d98/' \
             'data/Argentina/Senado/ep-popolo-v1.0.json'
 
     def test_directory(self):
@@ -185,7 +185,9 @@ class TestLeglislatureMethods(TestCase):
         l = self.legislatures[0]
         popolo = l.popolo()
         mocked_popolo_class.from_url.assert_called_with(
-            u'https://cdn.rawgit.com/everypolitician/everypolitician-data/ba00071/data/Argentina/Diputados/ep-popolo-v1.0.json')
+            u'https://cdn.rawgit.com/everypolitician/everypolitician-data/'
+            u'd3afadff7d5a08e1745b7e48782a869ec4979e78/data/Argentina/'
+            u'Diputados/ep-popolo-v1.0.json')
         assert len(popolo.persons) == 1
         assert popolo.persons.first.name == 'Joe Bloggs'
 

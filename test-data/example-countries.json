@@ -10,11 +10,11 @@
         "slug": "Lagting",
         "sources_directory": "data/Aland/Lagting/sources",
         "popolo": "data/Aland/Lagting/ep-popolo-v1.0.json",
-        "popolo_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/f6aafcb/data/Aland/Lagting/ep-popolo-v1.0.json",
+        "popolo_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/00212a86d5e0c3bbfc22289fd7c714d17c6ced85/data/Aland/Lagting/ep-popolo-v1.0.json",
         "names": "data/Aland/Lagting/names.csv",
-        "lastmod": "1470658552",
+        "lastmod": "1477620836",
         "person_count": 60,
-        "sha": "f6aafcb",
+        "sha": "00212a86d5e0c3bbfc22289fd7c714d17c6ced85",
         "legislative_periods": [
           {
             "end_date": "2019-10-31",
@@ -23,7 +23,7 @@
             "start_date": "2015-11-02",
             "slug": "2015",
             "csv": "data/Aland/Lagting/term-2015.csv",
-            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/6274b06/data/Aland/Lagting/term-2015.csv"
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/421c2375c000ba8b869b679151042e24dbaad760/data/Aland/Lagting/term-2015.csv"
           },
           {
             "end_date": "2015",
@@ -32,7 +32,7 @@
             "start_date": "2011",
             "slug": "2011",
             "csv": "data/Aland/Lagting/term-2011.csv",
-            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/2a9e6f9/data/Aland/Lagting/term-2011.csv"
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/2a9e6f9ae533bf8eb6109a1e6c5451ce9f539cc2/data/Aland/Lagting/term-2011.csv"
           },
           {
             "end_date": "2011",
@@ -41,10 +41,11 @@
             "start_date": "2007",
             "slug": "2007",
             "csv": "data/Aland/Lagting/term-2007.csv",
-            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/2a9e6f9/data/Aland/Lagting/term-2007.csv"
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/2a9e6f9ae533bf8eb6109a1e6c5451ce9f539cc2/data/Aland/Lagting/term-2007.csv"
           }
         ],
-        "statement_count": 3350
+        "statement_count": 3305,
+        "type": "unicameral legislature"
       }
     ]
   },
@@ -59,11 +60,11 @@
         "slug": "Diputados",
         "sources_directory": "data/Argentina/Diputados/sources",
         "popolo": "data/Argentina/Diputados/ep-popolo-v1.0.json",
-        "popolo_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/ba00071/data/Argentina/Diputados/ep-popolo-v1.0.json",
+        "popolo_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/d3afadff7d5a08e1745b7e48782a869ec4979e78/data/Argentina/Diputados/ep-popolo-v1.0.json",
         "names": "data/Argentina/Diputados/names.csv",
-        "lastmod": "1470043767",
+        "lastmod": "1477635781",
         "person_count": 390,
-        "sha": "ba00071",
+        "sha": "d3afadff7d5a08e1745b7e48782a869ec4979e78",
         "legislative_periods": [
           {
             "id": "term/133",
@@ -71,21 +72,22 @@
             "start_date": "2015",
             "slug": "133",
             "csv": "data/Argentina/Diputados/term-133.csv",
-            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/e7335de/data/Argentina/Diputados/term-133.csv"
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/d3afadff7d5a08e1745b7e48782a869ec4979e78/data/Argentina/Diputados/term-133.csv"
           }
         ],
-        "statement_count": 14883
+        "statement_count": 14952,
+        "type": "lower house"
       },
       {
         "name": "Cámara de Senadores",
         "slug": "Senado",
         "sources_directory": "data/Argentina/Senado/sources",
         "popolo": "data/Argentina/Senado/ep-popolo-v1.0.json",
-        "popolo_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/25257c4/data/Argentina/Senado/ep-popolo-v1.0.json",
+        "popolo_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/c323b935f2dce83fcdfcbb5c2f94614a25207d98/data/Argentina/Senado/ep-popolo-v1.0.json",
         "names": "data/Argentina/Senado/names.csv",
-        "lastmod": "1471507861",
+        "lastmod": "1477314249",
         "person_count": 72,
-        "sha": "25257c4",
+        "sha": "c323b935f2dce83fcdfcbb5c2f94614a25207d98",
         "legislative_periods": [
           {
             "end_date": "2017-12-09",
@@ -94,10 +96,11 @@
             "start_date": "2015-12-10",
             "slug": "2015",
             "csv": "data/Argentina/Senado/term-2015.csv",
-            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/25257c4/data/Argentina/Senado/term-2015.csv"
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/c323b935f2dce83fcdfcbb5c2f94614a25207d98/data/Argentina/Senado/term-2015.csv"
           }
         ],
-        "statement_count": 3986
+        "statement_count": 4024,
+        "type": "upper house"
       }
     ]
   }
