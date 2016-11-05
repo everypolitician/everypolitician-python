@@ -153,10 +153,10 @@ class TestCountryHousesMethod(TestCase):
     def test_finds_unicameral_legislature_for_lower_house(self):
         with patch('everypolitician.lib.requests.get', side_effect=fake_requests_get):
             ep = EveryPolitician()
-            country = ep.country('Albania')
+            country = ep.country('Aland')
             houses = country.houses('lower house')
             assert len(houses) == 1
-            assert houses[0].name == 'Kuvendi'
+            assert houses[0].name == 'Lagting'
 
     def test_finds_lower_house_if_present(self):
         with patch('everypolitician.lib.requests.get', side_effect=fake_requests_get):
