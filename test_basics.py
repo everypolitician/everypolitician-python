@@ -137,6 +137,8 @@ class TestCountryMethods(TestCase):
         with patch('everypolitician.lib.requests.get', side_effect=fake_requests_get):
             self.ep = EveryPolitician()
             self.country_aland = self.ep.country('Aland')
+            self.country_argentina = self.ep.country('Argentina')
+            self.country_bv = self.ep.country('British-Virgin-Islands')
 
     def test_country_repr(self):
         if six.PY2:
@@ -147,6 +149,19 @@ class TestCountryMethods(TestCase):
     def test_get_legislatures(self):
         ls = self.country_aland.legislatures()
         assert len(ls) == 1
+
+    def test_most_recent_house_no_house_matches(self):
+        with pytest.raises(NotFound):
+            print(self.country_argentina.house_most_recent('random_house'))
+
+    def test_most_recent_house_where_multiple_match_lower_house(self):
+        assert self.country_bv.house_most_recent('lower_house').name == 'House of Assembly'
+
+    def test_lower_house_shortcut(self):
+        assert self.country_argentina.lower_house().name == 'Cámara de Diputados'
+
+    def test_upper_house_shortcut(self):
+        assert self.country_argentina.upper_house().name == 'Cámara de Senadores'
 
 
 class TestCountryHousesMethod(TestCase):

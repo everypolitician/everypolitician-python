@@ -119,6 +119,24 @@ class Country(object):
             l for l in self.legislatures()
             if l.type in (type_of_house, 'unicameral legislature')]
 
+    def house_most_recent(self, type_of_house):
+        houses = self.houses(type_of_house)
+        if not houses:
+            raise NotFound("No house of type {0}".format(type_of_house))
+        if len(houses) == 1:
+            return houses[0]
+        return max(
+            houses,
+            key=lambda h: h.latest_legislative_period().start_date)
+
+    def lower_house(self):
+        """A shortcut method to return the most recently active lower house"""
+        return self.house_most_recent('lower house')
+
+    def upper_house(self):
+        """A shortcut method to return the most recently active lower house"""
+        return self.house_most_recent('upper house')
+
     def __repr__(self):
         fmt = str('<Country: {}>')
         if six.PY2:
@@ -159,6 +177,12 @@ class Legislature(object):
             LegislativePeriod(lp_data, self, self.country)
             for lp_data in self.legislature_data['legislative_periods']
         ]
+
+    def latest_legislative_period(self):
+        """Return the most recent legislative period for this legislature"""
+        return max(
+            self.legislative_periods(),
+            key=lambda lp: lp.start_date)
 
     def __repr__(self):
         fmt = str('<Legislature: {0} in {1}>')
