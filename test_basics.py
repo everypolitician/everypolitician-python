@@ -136,16 +136,16 @@ class TestCountryMethods(TestCase):
     def setUp(self):
         with patch('everypolitician.lib.requests.get', side_effect=fake_requests_get):
             self.ep = EveryPolitician()
-            self.country = self.ep.country('Aland')
+            self.country_aland = self.ep.country('Aland')
 
     def test_country_repr(self):
         if six.PY2:
-            assert repr(self.country) == b'<Country: \xc3\x85land>'
+            assert repr(self.country_aland) == b'<Country: \xc3\x85land>'
         else:
-            assert repr(self.country) == '<Country: \xc5land>'
+            assert repr(self.country_aland) == '<Country: \xc5land>'
 
     def test_get_legislatures(self):
-        ls = self.country.legislatures()
+        ls = self.country_aland.legislatures()
         assert len(ls) == 1
 
 
