@@ -83,14 +83,15 @@ class TestDataLoading(TestCase):
             dirname(__file__), 'test-data', 'example-countries.json')
         ep = EveryPolitician(countries_json_filename=filename)
         countries = ep.countries()
-        assert len(countries) == 2
+        assert len(countries) == 3
 
     def test_countries(self, patched_requests_get):
         ep = EveryPolitician()
         countries = ep.countries()
-        assert len(countries) == 2
+        assert len(countries) == 3
         assert text_type(countries[0]) == '<Country: Åland>'
         assert text_type(countries[1]) == '<Country: Argentina>'
+        assert text_type(countries[2]) == '<Country: British Virgin Islands>'
 
     def test_json_only_fetched_once(self, patched_requests_get):
         ep = EveryPolitician()

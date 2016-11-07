@@ -103,5 +103,150 @@
         "type": "upper house"
       }
     ]
+  },
+  {
+    "name": "British Virgin Islands",
+    "country": "British Virgin Islands",
+    "code": "VG",
+    "slug": "British-Virgin-Islands",
+    "legislatures": [
+      {
+        "name": "House of Assembly",
+        "slug": "Assembly",
+        "sources_directory": "data/British_Virgin_Islands/Assembly/sources",
+        "popolo": "data/British_Virgin_Islands/Assembly/ep-popolo-v1.0.json",
+        "popolo_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/e319dc099d97111b978ae25c9c547b30cf723294/data/British_Virgin_Islands/Assembly/ep-popolo-v1.0.json",
+        "names": "data/British_Virgin_Islands/Assembly/names.csv",
+        "lastmod": "1477214837",
+        "person_count": 23,
+        "sha": "e319dc099d97111b978ae25c9c547b30cf723294",
+        "legislative_periods": [
+          {
+            "id": "term/2015",
+            "name": "3rd Assembly",
+            "start_date": "2015-06-08",
+            "slug": "2015",
+            "csv": "data/British_Virgin_Islands/Assembly/term-2015.csv",
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/76647a7d8f88b0fe0ae294cb36459d3b5468e30f/data/British_Virgin_Islands/Assembly/term-2015.csv"
+          },
+          {
+            "end_date": "2015",
+            "id": "term/2011",
+            "name": "2nd Assembly",
+            "start_date": "2011",
+            "slug": "2011",
+            "csv": "data/British_Virgin_Islands/Assembly/term-2011.csv",
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/61e40dda7a1796b65bd1a072e683adcf6ead6a47/data/British_Virgin_Islands/Assembly/term-2011.csv"
+          },
+          {
+            "end_date": "2011",
+            "id": "term/2007",
+            "name": "1st Assembly",
+            "start_date": "2007",
+            "slug": "2007",
+            "csv": "data/British_Virgin_Islands/Assembly/term-2007.csv",
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/61e40dda7a1796b65bd1a072e683adcf6ead6a47/data/British_Virgin_Islands/Assembly/term-2007.csv"
+          }
+        ],
+        "statement_count": 1178,
+        "type": "unicameral legislature"
+      },
+      {
+        "name": "Legislative Council",
+        "slug": "Council",
+        "sources_directory": "data/British_Virgin_Islands/Council/sources",
+        "popolo": "data/British_Virgin_Islands/Council/ep-popolo-v1.0.json",
+        "popolo_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/0d6b4b49128cd3a8fd5427d83ede8e867035aede/data/British_Virgin_Islands/Council/ep-popolo-v1.0.json",
+        "names": "data/British_Virgin_Islands/Council/names.csv",
+        "lastmod": "1477214906",
+        "person_count": 36,
+        "sha": "0d6b4b49128cd3a8fd5427d83ede8e867035aede",
+        "legislative_periods": [
+          {
+            "end_date": "2007-08-20",
+            "id": "term/2003",
+            "name": "15th Council",
+            "start_date": "2003-06-16",
+            "slug": "2003",
+            "csv": "data/British_Virgin_Islands/Council/term-2003.csv",
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/44dcc4ac9c1e095b1002cce6c7d6328385da689e/data/British_Virgin_Islands/Council/term-2003.csv"
+          },
+          {
+            "end_date": "2003",
+            "id": "term/1999",
+            "name": "14th Council",
+            "start_date": "1999",
+            "slug": "1999",
+            "csv": "data/British_Virgin_Islands/Council/term-1999.csv",
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/44dcc4ac9c1e095b1002cce6c7d6328385da689e/data/British_Virgin_Islands/Council/term-1999.csv"
+          },
+          {
+            "end_date": "1999",
+            "id": "term/1995",
+            "name": "13th Council",
+            "start_date": "1995",
+            "slug": "1995",
+            "csv": "data/British_Virgin_Islands/Council/term-1995.csv",
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/bcc28cf1f81836150f1ba11c4240ba396d158902/data/British_Virgin_Islands/Council/term-1995.csv"
+          },
+          {
+            "end_date": "1995",
+            "id": "term/1990",
+            "name": "12th Council",
+            "start_date": "1990",
+            "slug": "1990",
+            "csv": "data/British_Virgin_Islands/Council/term-1990.csv",
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/44dcc4ac9c1e095b1002cce6c7d6328385da689e/data/British_Virgin_Islands/Council/term-1990.csv"
+          },
+          {
+            "end_date": "1990",
+            "id": "term/1986",
+            "name": "11th Council",
+            "start_date": "1986",
+            "slug": "1986",
+            "csv": "data/British_Virgin_Islands/Council/term-1986.csv",
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/bcc28cf1f81836150f1ba11c4240ba396d158902/data/British_Virgin_Islands/Council/term-1986.csv"
+          },
+          {
+            "end_date": "1986",
+            "id": "term/1983",
+            "name": "10th Council",
+            "start_date": "1983",
+            "slug": "1983",
+            "csv": "data/British_Virgin_Islands/Council/term-1983.csv",
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/bcc28cf1f81836150f1ba11c4240ba396d158902/data/British_Virgin_Islands/Council/term-1983.csv"
+          },
+          {
+            "end_date": "1983",
+            "id": "term/1979",
+            "name": "9th Council",
+            "start_date": "1979",
+            "slug": "1979",
+            "csv": "data/British_Virgin_Islands/Council/term-1979.csv",
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/44dcc4ac9c1e095b1002cce6c7d6328385da689e/data/British_Virgin_Islands/Council/term-1979.csv"
+          },
+          {
+            "end_date": "1979",
+            "id": "term/1975",
+            "name": "8th Council",
+            "start_date": "1975",
+            "slug": "1975",
+            "csv": "data/British_Virgin_Islands/Council/term-1975.csv",
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/44dcc4ac9c1e095b1002cce6c7d6328385da689e/data/British_Virgin_Islands/Council/term-1975.csv"
+          },
+          {
+            "end_date": "1975",
+            "id": "term/1971",
+            "name": "7th Council",
+            "start_date": "1971",
+            "slug": "1971",
+            "csv": "data/British_Virgin_Islands/Council/term-1971.csv",
+            "csv_url": "https://cdn.rawgit.com/everypolitician/everypolitician-data/bcc28cf1f81836150f1ba11c4240ba396d158902/data/British_Virgin_Islands/Council/term-1971.csv"
+          }
+        ],
+        "statement_count": 2060,
+        "type": "unicameral legislature"
+      }
+    ]
   }
 ]
