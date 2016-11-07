@@ -225,6 +225,20 @@ class TestLeglislatureMethods(TestCase):
         assert len(popolo.persons) == 1
         assert popolo.persons.first.name == 'Joe Bloggs'
 
+    @patch('everypolitician.lib.Popolo')
+    def test_popolo_data_only_fetched_once(self, mocked_popolo_class):
+        mocked_popolo_class.from_url.return_value = Popolo({
+            'persons': [
+                {'name': 'Joe Bloggs'}
+            ]
+        })
+        l = self.legislatures[0]
+        l.popolo()
+        l.popolo()
+        mocked_popolo_class.from_url.assert_called_once_with(
+            u'https://cdn.rawgit.com/everypolitician/everypolitician-data/'
+            u'd3afadff7d5a08e1745b7e48782a869ec4979e78/data/Argentina/'
+            u'Diputados/ep-popolo-v1.0.json')
 
 @patch('everypolitician.lib.requests.get', side_effect=fake_requests_get)
 class TestLegislativePeriod(TestCase):

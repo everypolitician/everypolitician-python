@@ -141,9 +141,12 @@ class Legislature(object):
             float(legislature_data['lastmod']))
         self.legislature_data = legislature_data
         self.country = country
+        self.cached_popolo = None
 
     def popolo(self):
-        return Popolo.from_url(self.popolo_url)
+        if self.cached_popolo is None:
+            self.cached_popolo = Popolo.from_url(self.popolo_url)
+        return self.cached_popolo
 
     def directory(self):
         """Return the directory path in the everypolitician-data repository"""
