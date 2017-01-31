@@ -17,6 +17,6 @@ setup(
     install_requires = [
         'requests',
         'six >= 1.9.0',
-        'everypolitician-popolo >= 0.0.10',
+        'everypolitician-popolo >= 0.0.11',
     ]
 )
